@@ -31,7 +31,6 @@ window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     header.classList.toggle('sticky', scrollPosition > 100);
 
-    // Só fechar o menu se estiver aberto
     if (menuIcon.classList.contains('bx-x')) {
         menuIcon.classList.remove('bx-x');
         navbar.classList.remove('active');
@@ -90,21 +89,34 @@ portfolioBoxes.forEach(box => {
         const link = box.getAttribute("data-link");
         const habilidades = box.getAttribute("data-habilidades");
         const tecnologias = box.getAttribute("data-tecnologias");
+        const images = box.getAttribute("data-images");
 
-        modalContent.innerHTML = `
-            <span class="close-btn">&times;</span>
-            <h2>${title}</h2>
-            <div class="meio-modal">
+        if (title === "Power Bi's" && images) {
+            const imgArray = images.split(",");
+            modalContent.innerHTML = `
+                <span class="close-btn">&times;</span>
+                <h2>${title}</h2>
                 <p>${description}</p>
-                <h3>- Habilidades desenvolvidas:</h3>
-                <p>${habilidades}</p>
-                <h3>- Tecnologias utilizadas:</h3>
-                <p>${tecnologias}</p>
-                <div class="botao">
-                    <a href="${link}" target="_blank">GitHub do projeto</a>
+                <div class="carousel">
+                    ${imgArray.map(img => `<img src="${img.trim()}" alt="Dashboard Power BI">`).join('')}
                 </div>
-            </div>
-        `;
+            `;
+        } else {
+            modalContent.innerHTML = `
+                <span class="close-btn">&times;</span>
+                <h2>${title}</h2>
+                <div class="meio-modal">
+                    <p>${description}</p>
+                    <h3>- Habilidades desenvolvidas:</h3>
+                    <p>${habilidades || "—"}</p>
+                    <h3>- Tecnologias utilizadas:</h3>
+                    <p>${tecnologias || "—"}</p>
+                    <div class="botao">
+                        <a href="${link}" target="_blank">GitHub do projeto</a>
+                    </div>
+                </div>
+            `;
+        }
 
         modal.style.display = "block";
 
