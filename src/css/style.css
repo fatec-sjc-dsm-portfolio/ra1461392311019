@@ -375,7 +375,7 @@ section {
     align-items: center;
     width: 110px;
     height: 30px;
-    background: white;
+    background: rgb(255, 57, 57);
     color: black;
     border-radius: 2.5rem;
     font-size: 13px;
@@ -383,7 +383,7 @@ section {
 } 
 
 .textos-projeto a:hover {
-    background: var(--main-color);
+    background: rgb(160, 4, 4);
     color: var(--white-color);
     border: 1px solid var(--white-color);   
 }
@@ -612,6 +612,13 @@ p {
     justify-content: center;
     gap: 50px;
 }
+.conteudo-projeto img {
+    background-color: #474747;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 .contact h2 {
     margin-bottom: 30px;

@@ -33,14 +33,6 @@ darkModeIcon.addEventListener('click', () => {
     updateLogoTE(isSun);
 });
 
-function updateLogo(isSun) {
-    if (isSun) {
-        logo.style.backgroundImage = "url('../src/image/logo.png')"; 
-    } else {
-        logo.style.backgroundImage = "url('../src/image/logo_modoescuro.png')"; 
-    }
-}
-
 function updateLogoTE(isSun) {
     const logote = document.getElementById('logote');
     if (logote) {
