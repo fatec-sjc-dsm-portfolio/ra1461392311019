@@ -30,17 +30,8 @@ darkModeIcon.addEventListener('click', () => {
     darkModeIcon.classList.toggle('bx-sun', !isSun);
     document.body.classList.toggle('dark-mode');
     updateLogo(isSun);
-    updateLogoTE(isSun);
 });
 
-function updateLogoTE(isSun) {
-    const logote = document.getElementById('logote');
-    if (logote) {
-        logote.src = isSun 
-            ? '../src/image/logotechempiremodoclaro.png' 
-            : '../src/image/logotechempire.png'; 
-    }
-}
 
 ScrollReveal({ 
     reset: true,
